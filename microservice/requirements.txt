@@ -1,0 +1,6 @@
+fastapi-utils==0.2.1
+fastapi==0.68.0
+afinn==0.1
+uvicorn==0.17.5
+gunicorn==20.1.0
+requests==2.22.0
