@@ -1,7 +1,7 @@
 FROM python:3.9-slim AS base
 
 ARG BUILD_ENV_ARG=local
-ARG SERVICE_NAME=machine_translation_model_service
+ARG SERVICE_NAME=sentiment_analysis_model_service
 ENV SERVICE_NAME $SERVICE_NAME
 ENV BUILD_ENV=$BUILD_ENV_ARG
 
