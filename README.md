@@ -1,6 +1,9 @@
 # Sentiment Analysis Model Service
-Illustrate using fastAPI for microservice deployment.
+Illustrate using fastAPI for microservice deployment. This repository could serve as a standalone service or be used as 
+one of the backend ml service for ml service gateway ([repo](https://github.com/allyoushawn/mlservice)).
 
+
+Following the following code to run the service:
 ```
 cd /path/to/microservice_example
 cd ..
