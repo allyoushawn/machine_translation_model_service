@@ -1,5 +1,5 @@
 from base_microservice.application import api as base_api
-from microservice.api import api as sentiment_analysis_api
+from sentiment_analysis_model_service.api import api as sentiment_analysis_api
 from fastapi import FastAPI
 import uvicorn
 

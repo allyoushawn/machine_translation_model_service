@@ -1,7 +1,7 @@
 import pytest
-from microservice.model.sentiment_model import SentimentAnalyzer
+from sentiment_analysis_model_service.model.sentiment_model import SentimentAnalyzer
 from typing import Generator
-from microservice.config.config_models import SentimentModelConfig
+from sentiment_analysis_model_service.config.config_models import SentimentModelConfig
 
 
 @pytest.fixture(scope="module")

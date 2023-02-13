@@ -1,0 +1,1 @@
+include sentiment_analysis_model_service/config/service_config.json

@@ -13,8 +13,8 @@ gunicorn_port=4460
 
 if [ "$BUILD_ENV" == "jenkins" ]; then
     echo "Start service with credentials"
-    gunicorn -w 3 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:$gunicorn_port microservice.entrypoint --certfile=/path/to/file.crt --keyfile=/path/to/file.key
+    gunicorn -w 3 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:$gunicorn_port sentiment_analysis_model_service.entrypoint --certfile=/path/to/file.crt --keyfile=/path/to/file.key
 else
     echo "Start service without credentials"
-    gunicorn -w 3 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:$gunicorn_port microservice.entrypoint
+    gunicorn -w 3 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:$gunicorn_port sentiment_analysis_model_service.entrypoint
 fi

@@ -1,6 +1,6 @@
 import pytest
 from fastapi.testclient import TestClient
-from microservice.entrypoint import application
+from sentiment_analysis_model_service.entrypoint import application
 from typing import Generator
 
 @pytest.fixture(scope="module")

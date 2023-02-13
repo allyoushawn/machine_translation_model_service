@@ -1,6 +1,6 @@
 import pytest
 from typing import Generator, Dict, Any
-from microservice.api.payloads import SentimentAnalysisPayload
+from sentiment_analysis_model_service.api.payloads import SentimentAnalysisPayload
 from fastapi.testclient import TestClient
 import json
 

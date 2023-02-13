@@ -1,12 +1,12 @@
 from typing import Dict, Any
 from fastapi_utils.cbv import cbv
 from fastapi_utils.inferring_router import  InferringRouter
-from microservice.model.sentiment_model import  SentimentAnalyzer
-from microservice.config.config_models import SentimentModelConfig
+from sentiment_analysis_model_service.model.sentiment_model import  SentimentAnalyzer
+from sentiment_analysis_model_service.config.config_models import SentimentModelConfig
 
-from microservice.api.payloads import SentimentAnalysisPayload
-from microservice.api.responses import SentimentAnalysisResponse
-from microservice import paths
+from sentiment_analysis_model_service.api.payloads import SentimentAnalysisPayload
+from sentiment_analysis_model_service.api.responses import SentimentAnalysisResponse
+from sentiment_analysis_model_service import paths
 
 router = InferringRouter()
 @cbv(router)

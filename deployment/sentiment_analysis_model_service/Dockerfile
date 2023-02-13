@@ -1,0 +1,41 @@
+FROM python:3.9-slim AS base
+
+ARG BUILD_ENV_ARG=local
+ARG SERVICE_NAME=sentiment_analysis_model_service
+ARG SERVICE_ROOT_DIR_NAME=ml_model_service
+ENV SERVICE_NAME $SERVICE_NAME
+ENV SERVICE_ROOT_DIR_NAME $SERVICE_ROOT_DIR_NAME
+ENV BUILD_ENV=$BUILD_ENV_ARG
+
+RUN apt-get update -y && apt-get install -y gcc && apt-get install -y g++
+COPY ./$SERVICE_NAME/requirements.txt /requirements.txt
+RUN pip3 install -r /requirements.txt
+
+COPY ./$SERVICE_NAME $SERVICE_ROOT_DIR_NAME/$SERVICE_NAME
+COPY ./base_microservice /$SERVICE_ROOT_DIR_NAME/base_microservice
+
+RUN apt-get install make && \
+    cd $SERVICE_ROOT_DIR_NAME && \
+    make install-microservice-dependencies -f /$SERVICE_ROOT_DIR_NAME/$SERVICE_NAME/Makefile
+
+ARG gunicorn_port=4460
+ENV gunicorn_port $gunicorn_port
+EXPOSE $gunicorn_port
+HEALTHCHECK CMD curl --fail http://localhost:4460/ || exit 0
+RUN useradd -m -u  1000 nlp && \
+    adduser nlp nogroup && \
+    chmod o+x /$SERVICE_ROOT_DIR_NAME/$SERVICE_NAME/service_start.sh
+
+FROM base AS test
+COPY ./monorepo_requirements.txt /$SERVICE_SERVICE_ROOT_DIR_NAME/monorepo_requirements.txt
+COPY ./pytest.ini /$SERVICE_SERVICE_ROOT_DIR_NAME/pytest.ini
+COPY ./mypy.ini /$SERVICE_SERVICE_ROOT_DIR_NAME/mypy.ini
+WORKDIR $SERVICE_ROOT_DIR_NAME
+RUN make install-microservice-test-dependencies -f /$SERVICE_ROOT_DIR_NAME/$SERVICE_NAME/Makefile
+CMD make run-microservice-unit-tests -f /$SERVICE_ROOT_DIR_NAME/$SERVICE_NAME/Makefile && \
+    make run-microservice-typing-tests -f /$SERVICE_ROOT_DIR_NAME/$SERVICE_NAME/Makefile
+
+
+FROM base AS prod
+USER nlp
+CMD sh /$SERVICE_ROOT_DIR_NAME/$SERVICE_NAME/service_start.sh

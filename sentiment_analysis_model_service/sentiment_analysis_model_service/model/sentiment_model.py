@@ -1,5 +1,5 @@
 from afinn import Afinn
-from microservice.config.config_models import SentimentModelConfig
+from sentiment_analysis_model_service.config.config_models import SentimentModelConfig
 from typing import Any, Dict, List
 
 

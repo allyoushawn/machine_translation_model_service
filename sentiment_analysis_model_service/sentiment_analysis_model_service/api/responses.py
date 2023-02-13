@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Extra
-from microservice.api.payloads import SentimentAnalysisPayload
+from sentiment_analysis_model_service.api.payloads import SentimentAnalysisPayload
 
 
 class Result(BaseModel, extra=Extra.forbid):
