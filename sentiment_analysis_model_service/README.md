@@ -5,8 +5,7 @@ one of the backend ml service for ml service gateway ([repo](https://github.com/
 
 Following the following code to run the service:
 ```
-cd /path/to/microservice_example
-cd ..
+cd /path/to/ml_model_service
 docker build -t sentiment_analysis_model_service:prod --target prod -f deployment/sentiment_analysis_model_service/Dockerfile .
 docker run --name sentiment_analysis_model_service_local -it -p 4460:4460 sentiment_analysis_model_service:prod
 ```
