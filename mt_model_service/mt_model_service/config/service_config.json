@@ -1,0 +1,8 @@
+{
+  "int_place_holder": 1,
+  "emsize": 200,
+  "nhid": 200,
+  "nlayers": 2,
+  "nhead": 2,
+  "src_lang_spacy_model_name": "zh_core_web_sm"
+}
