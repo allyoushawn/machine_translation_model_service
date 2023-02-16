@@ -2,6 +2,17 @@
 Illustrate using fastAPI for microservice deployment. This repository could serve as a standalone service or be used as 
 one of the backend ml service for ml service gateway ([repo](https://github.com/allyoushawn/mlservice)).
 
+# Setup
+To run the service, you would need to train a machine translation model first, and put the model and vocabularies in
+`mt_model_service/mt_model_service/resource`. The repository is using the output of another project [transformt_mt](https://github.com/allyoushawn/transformer_mt).
+- resource/model.cpu.pt: The model that could be run in CPU environment.
+- resource/model.gpu.pt: The model that could be run in GPU environment.
+- resource/src.vocab: The vocabulary of the source language.
+- resource/tgt.vocab: The vocabulary of the target language.
+
+We put `fake.*` in the `resource` directory to indicate the corresponding paths.
+
+# Run the service
 
 Following the following code to run the service:
 ```
