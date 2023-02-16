@@ -2,3 +2,4 @@ include mt_model_service/config/service_config.json
 include mt_model_service/resource/src.vocab
 include mt_model_service/resource/tgt.vocab
 include mt_model_service/resource/model.cpu.pt
+include mt_model_service/resource/model.gpu.pt

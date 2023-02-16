@@ -23,6 +23,7 @@ class MTModel:
 
         self.mt_model = TransformerModel(ntoken, tgt_ntoken, config.emsize, config.nhead, config.nhid, config.nlayers)
         self.mt_model.load_state_dict(torch.load(paths.MODEL_PATH))
+        self.mt_model.eval()
 
         self.mt_model = self.mt_model.to(self.device)
 
@@ -164,7 +165,6 @@ if __name__ == "__main__":
     config = MTModelConfig.parse_file(paths.SERVICE_CONFIG_PATH)
     mt_model = MTModel(config)
     text = "This is really good."
-    text = "We had a really hard time."
     output = mt_model.get_translated_text(text)
     print(f"text: {text}")
     print(f"translated text: {output}")
