@@ -5,9 +5,8 @@ jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - run: ls
       - uses: actions/checkout@v3
-      - run: ls
+      - run: make install.sentiment.analysis.model.service.dependencies
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
