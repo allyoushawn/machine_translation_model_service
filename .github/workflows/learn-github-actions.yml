@@ -5,6 +5,7 @@ jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
+      - run: ls
       - uses: actions/checkout@v3
       - run: ls
       - uses: actions/setup-node@v3
