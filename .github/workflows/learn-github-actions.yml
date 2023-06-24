@@ -7,9 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: make install.sentiment.analysis.model.service.dependencies
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-      - run: npm install -g bats
-      - run: bats -v
+      - run: make install.sentiment.analysis.model.service.test.dependencies
+      - run: make run.sentiment.analysis.model.service.test
+      - run: make run.sentiment.analysis.model.service.typing.test
 
