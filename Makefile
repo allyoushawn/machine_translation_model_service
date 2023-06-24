@@ -20,3 +20,4 @@ run.sentiment.analysis.model.service.test:
 run.sentiment.analysis.model.service.typing.test:
 	echo "Running type checks for microservice" && \
 	mypy ./sentiment_analysis_model_service/sentiment_analysis_model_service ./sentiment_analysis_model_service/tests/unit
+
