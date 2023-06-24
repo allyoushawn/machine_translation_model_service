@@ -8,6 +8,7 @@ jobs:
       - uses: actions/checkout@v3
       - run: make install.sentiment.analysis.model.service.dependencies
       - run: make install.sentiment.analysis.model.service.test.dependencies
+      - run: pip list
       - run: make run.sentiment.analysis.model.service.test
       - run: make run.sentiment.analysis.model.service.typing.test
 
