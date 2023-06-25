@@ -2,7 +2,7 @@ name: run-unit-tests
 run-name: ${{ github.actor }} is running unit tests
 on: [push]
 jobs:
-  check-bats-version:
+  run-sentiment-analysis-unit-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
