@@ -1,13 +1,12 @@
-name: learn-github-actions
-run-name: ${{ github.actor }} is learning GitHub Actions
+name: run-unit-tests
+run-name: ${{ github.actor }} is running unit tests
 on: [push]
 jobs:
-  check-bats-version:
+  run-sentiment-analysis-unit-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - run: make install.sentiment.analysis.model.service.dependencies
-      - run: make install.sentiment.analysis.model.service.test.dependencies
       - run: pip list
       - run: make run.sentiment.analysis.model.service.test
       - run: make run.sentiment.analysis.model.service.typing.test
